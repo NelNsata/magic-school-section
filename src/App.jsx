@@ -5,6 +5,7 @@ import { Calendar, Home, Scroll, Settings, Book, Users, ShieldAlert } from 'luci
 import DashboardView from './components/DashboardView';
 import RegistrationView from './components/RegistrationView';
 import LoreView from './components/LoreView';
+import ProfDashboardView from './components/ProfDashboardView';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('dashboard');
@@ -101,7 +102,9 @@ export default function App() {
           {currentView === 'registration' && <RegistrationView />}
           {currentView === 'lore' && <LoreView />}
           
-          {['grades', 'prof-dashboard', 'prof-approve'].includes(currentView) && (
+          {currentView === 'prof-dashboard' && <ProfDashboardView />}
+          
+          {['grades', 'prof-approve'].includes(currentView) && (
             <div className="flex flex-col items-center justify-center h-[60vh] text-[#64748b]">
               <div className="w-16 h-16 mb-4 bg-[#1e293b] rounded-full flex items-center justify-center animate-pulse">
                 <Settings size={32} className="text-[#8b95a5]" />
